@@ -1,12 +1,24 @@
 package pe.pss.pointer.pointerbackend.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import pe.pss.pointer.pointerbackend.model.dto.Combo;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "rh_tm_menu_web")
+@SqlResultSetMapping(
+		name="getComboSelectMapping",
+		classes={
+				@ConstructorResult(
+						targetClass= Combo.class,
+						columns={
+								@ColumnResult(name="cod",type = String.class),
+								@ColumnResult(name="des",type = String.class)
+						}
+				)
+		}
+)
+@NamedNativeQuery(name="Menu.getComboSelect", query="CALL spu_SelBusqueda(:empresa,'',:valor,'',:dato,'','')", resultSetMapping="getComboSelectMapping")
 public class Menu {
 	
 	@Id

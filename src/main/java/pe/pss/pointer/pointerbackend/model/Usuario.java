@@ -25,9 +25,10 @@ public class Usuario implements UserDetails{
 
 	@Column(name="idEmpresa")
 	private String idEmpresa;
-	
-	@Column(name="idTipoDocumentoIdentidad")
-	private String idTipoDocumentoIdentidad;
+
+	@ManyToOne
+	@JoinColumn(name = "idTipoDocumentoIdentidad")
+	private TipoDocumentosIdentidad tipoDocumentosIdentidad;
 	
 	@Column(name="numeroDocumento")
 	private String numeroDocumento;
@@ -67,12 +68,12 @@ public class Usuario implements UserDetails{
 		this.idEmpresa = idEmpresa;
 	}
 
-	public String getIdTipoDocumentoIdentidad() {
-		return idTipoDocumentoIdentidad;
+	public TipoDocumentosIdentidad getTipoDocumentosIdentidad() {
+		return tipoDocumentosIdentidad;
 	}
 
-	public void setIdTipoDocumentoIdentidad(String idTipoDocumentoIdentidad) {
-		this.idTipoDocumentoIdentidad = idTipoDocumentoIdentidad;
+	public void setTipoDocumentosIdentidad(TipoDocumentosIdentidad tipoDocumentosIdentidad) {
+		this.tipoDocumentosIdentidad = tipoDocumentosIdentidad;
 	}
 
 	public String getNumeroDocumento() {

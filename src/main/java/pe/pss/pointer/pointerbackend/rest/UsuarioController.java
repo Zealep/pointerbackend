@@ -33,6 +33,11 @@ public class UsuarioController {
         return new ResponseEntity<Usuario>(usuarioService.findById(id), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/findByCorreo/{correo}" , produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Usuario> findByCorreo(@PathVariable String correo){
+        return new ResponseEntity<Usuario>(usuarioService.findByCorreo(correo), HttpStatus.OK);
+    }
+
     @GetMapping(value = "/list", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Usuario>> findAll(){
         return new ResponseEntity<List<Usuario>>(usuarioService.findAll(),HttpStatus.OK);
@@ -59,7 +64,7 @@ public class UsuarioController {
             return new ResponseEntity<ResponseApi>(new ResponseApi("OK",null,null),HttpStatus.OK);
     }
 
-    @PostMapping(value = "/sendEmail",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/sendEmail",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseApi> enviarCorreo(@RequestParam(value = "correo") String correo){
         if(!usuarioService.existUser(correo)) {
             throw new ConflictException("El correo no se encuentra registrado");
