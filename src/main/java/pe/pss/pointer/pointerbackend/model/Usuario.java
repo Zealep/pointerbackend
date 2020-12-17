@@ -50,7 +50,6 @@ public class Usuario implements UserDetails{
 	
 	@Column(name="contraseña")
 	private String contraseña;
-	
 
 	public String getIdUsuarioWeb() {
 		return idUsuarioWeb;
@@ -123,8 +122,6 @@ public class Usuario implements UserDetails{
 	public void setContraseña(String contraseña) {
 		this.contraseña = contraseña;
 	}
-	
-	
 
 	public String getNombres() {
 		return nombres;

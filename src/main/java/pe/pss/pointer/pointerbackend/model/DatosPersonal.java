@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table (name = "rh_rl_tz_postulante")
@@ -126,6 +127,9 @@ public class DatosPersonal {
 
     @Column(name = "numeroConadis")
     int numeroConadis;
+
+    @OneToMany(mappedBy="datosPersonal",cascade=CascadeType.ALL)
+    private List<AreaInteres> areaInteres;
 
     public String getIdPostulante() {
         return idPostulante;
@@ -429,5 +433,13 @@ public class DatosPersonal {
 
     public void setNumeroConadis(int numeroConadis) {
         this.numeroConadis = numeroConadis;
+    }
+
+    public List<AreaInteres> getAreaInteres() {
+        return areaInteres;
+    }
+
+    public void setAreaInteres(List<AreaInteres> areaInteres) {
+        this.areaInteres = areaInteres;
     }
 }
