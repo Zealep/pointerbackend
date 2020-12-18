@@ -10,6 +10,12 @@ public interface Constantes {
 	public static final String TABLE_DATOS_PERSONAL= "rh_rl_tz_postulante";
 	public static final String ID_TABLE_DATOS_PERSONAL= "idPostulante";
 
+	public static final String TABLE_AREA_INTERES= "rh_rl_tz_postulante_area_interes";
+	public static final String ID_TABLE_AREA_INTERES= "idPostulanteAreas";
+
+	public static final String TABLE_DISCAPACIDAD= "rh_rl_tz_postulante_discapacidad";
+	public static final String ID_TABLE_DISCAPACIDAD= "idDiscapacidadPostulante";
+
 	public static final int RESPONSE_OK = 200;
 	public static final int RESPONSE_ERROR = 300;
 	public static final int RESPONSE_VALIDATION_ERROR = 301;

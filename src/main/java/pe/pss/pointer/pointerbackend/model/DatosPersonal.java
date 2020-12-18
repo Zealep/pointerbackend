@@ -128,9 +128,6 @@ public class DatosPersonal {
     @Column(name = "numeroConadis")
     int numeroConadis;
 
-    @OneToMany(mappedBy="datosPersonal",cascade=CascadeType.ALL)
-    private List<AreaInteres> areaInteres;
-
     public String getIdPostulante() {
         return idPostulante;
     }
@@ -435,11 +432,4 @@ public class DatosPersonal {
         this.numeroConadis = numeroConadis;
     }
 
-    public List<AreaInteres> getAreaInteres() {
-        return areaInteres;
-    }
-
-    public void setAreaInteres(List<AreaInteres> areaInteres) {
-        this.areaInteres = areaInteres;
-    }
 }

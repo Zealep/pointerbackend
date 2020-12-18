@@ -1,6 +1,5 @@
 package pe.pss.pointer.pointerbackend.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -12,13 +11,14 @@ public class AreaInteres {
     @Column(name = "idPostulanteAreas")
     private String idPostulanteAreas;
 
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name="idPostulante")
-    private DatosPersonal datosPersonal;
+    @Column(name = "idPostulante")
+    private String idPostulante;
 
     @Column(name = "idAreaAspira")
     private String idAreaAspira;
+
+    @Column(name = "idEmpresa")
+    private String idEmpresa;
 
     public String getIdPostulanteAreas() {
         return idPostulanteAreas;
@@ -28,12 +28,12 @@ public class AreaInteres {
         this.idPostulanteAreas = idPostulanteAreas;
     }
 
-    public DatosPersonal getDatosPersonal() {
-        return datosPersonal;
+    public String getIdPostulante() {
+        return idPostulante;
     }
 
-    public void setDatosPersonal(DatosPersonal datosPersonal) {
-        this.datosPersonal = datosPersonal;
+    public void setIdPostulante(String idPostulante) {
+        this.idPostulante = idPostulante;
     }
 
     public String getIdAreaAspira() {
@@ -42,5 +42,13 @@ public class AreaInteres {
 
     public void setIdAreaAspira(String idAreaAspira) {
         this.idAreaAspira = idAreaAspira;
+    }
+
+    public String getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(String idEmpresa) {
+        this.idEmpresa = idEmpresa;
     }
 }

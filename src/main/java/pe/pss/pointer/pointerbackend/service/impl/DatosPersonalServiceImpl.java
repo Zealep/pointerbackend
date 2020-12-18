@@ -29,7 +29,6 @@ public class DatosPersonalServiceImpl implements DatosPersonalService {
     @Override
     public DatosPersonal save(DatosPersonal d) {
         d.setIdEmpresa(Constantes.CODIGO_EMPRESA);
-        d.getAreaInteres().forEach(x -> x.setDatosPersonal(d));
         return datosPersonalRepository.save(d);
     }
 
