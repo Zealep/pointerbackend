@@ -49,13 +49,13 @@ public class UsuarioController {
                 throw new ConflictException("El correo del usuario ya existe");
             }
             Usuario u = usuarioService.save(usuario);
-        return new ResponseEntity<ResponseApi>(new ResponseApi("OK",Long.parseLong(u.getIdUsuarioWeb()),null),HttpStatus.CREATED);
+        return new ResponseEntity<ResponseApi>(new ResponseApi("OK",u.getIdUsuarioWeb(),null),HttpStatus.CREATED);
     }
 
     @PostMapping(value = "/update",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseApi> update(@RequestBody Usuario usuario){
         Usuario u = usuarioService.save(usuario);
-        return new ResponseEntity<ResponseApi>(new ResponseApi("OK",Long.parseLong(u.getIdUsuarioWeb()),null),HttpStatus.CREATED);
+        return new ResponseEntity<ResponseApi>(new ResponseApi("OK",u.getIdUsuarioWeb(),null),HttpStatus.CREATED);
     }
 
     @DeleteMapping(value = "/delete/{id}")

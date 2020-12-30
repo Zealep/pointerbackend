@@ -32,8 +32,10 @@ public class ExperienciaLaboralServiceImpl implements ExperienciaLaboralService 
 
     @Override
     public ExperienciaLaboral save(ExperienciaLaboral d) {
-        String pk = experienciaLaboralRepository.generatePrimaryKeyExperiencia(Constantes.TABLE_EXPERIENCIA_LABORAL,Constantes.ID_TABLE_EXPERIENCIA_LABORAL,Constantes.CODIGO_EMPRESA);
-        d.setIdExperienciaLaboral(pk);
+        if(d.getIdExperienciaLaboral()==null) {
+            String pk = experienciaLaboralRepository.generatePrimaryKeyExperiencia(Constantes.TABLE_EXPERIENCIA_LABORAL, Constantes.ID_TABLE_EXPERIENCIA_LABORAL, Constantes.CODIGO_EMPRESA);
+            d.setIdExperienciaLaboral(pk);
+        }
         d.setIdEmpresa(Constantes.CODIGO_EMPRESA);
         return experienciaLaboralRepository.save(d);
     }

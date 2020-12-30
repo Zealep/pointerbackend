@@ -5,27 +5,27 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pe.pss.pointer.pointerbackend.model.AreaInteres;
-import pe.pss.pointer.pointerbackend.model.ExperienciaLaboral;
-import pe.pss.pointer.pointerbackend.service.AreaInteresService;
-import pe.pss.pointer.pointerbackend.service.ExperienciaLaboralService;
+import pe.pss.pointer.pointerbackend.model.EducacionFormal;
+import pe.pss.pointer.pointerbackend.model.EducacionNoFormal;
+import pe.pss.pointer.pointerbackend.service.EducacionFormalService;
+import pe.pss.pointer.pointerbackend.service.EducacionNoFormalService;
 import pe.pss.pointer.pointerbackend.util.ResponseApi;
 
 import java.util.List;
 
 
 @RestController
-@RequestMapping("/expLaboral")
-public class ExperienciaLaboralController {
+@RequestMapping("/edu-noformal")
+public class EstudioNoFormalController {
 
     @Autowired
-    ExperienciaLaboralService experienciaLaboralService;
+    EducacionNoFormalService educacionNoFormalService;
 
 
     @GetMapping(value = "/find/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ExperienciaLaboral> findById(@PathVariable String id){
+    public ResponseEntity<EducacionNoFormal> findById(@PathVariable String id){
         try{
-            return new ResponseEntity<ExperienciaLaboral>(experienciaLaboralService.findById(id), HttpStatus.OK);
+            return new ResponseEntity<EducacionNoFormal>(educacionNoFormalService.findById(id), HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -33,9 +33,9 @@ public class ExperienciaLaboralController {
     }
 
     @GetMapping(value = "/findByPostulante/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<ExperienciaLaboral>> listPorPostulante(@PathVariable String id){
+    public ResponseEntity<List<EducacionNoFormal>> listPorPostulante(@PathVariable String id){
         try{
-            return new ResponseEntity<List<ExperienciaLaboral>>((List<ExperienciaLaboral>) experienciaLaboralService.findByPostulante(id), HttpStatus.OK);
+            return new ResponseEntity<List<EducacionNoFormal>>((List<EducacionNoFormal>) educacionNoFormalService.findByPostulante(id), HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -43,9 +43,9 @@ public class ExperienciaLaboralController {
     }
 
     @GetMapping(value = "/list",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<ExperienciaLaboral>> list(){
+    public ResponseEntity<List<EducacionNoFormal>> list(){
         try{
-            return new ResponseEntity<List<ExperienciaLaboral>>((List<ExperienciaLaboral>) experienciaLaboralService.findAll(), HttpStatus.OK);
+            return new ResponseEntity<List<EducacionNoFormal>>((List<EducacionNoFormal>) educacionNoFormalService.findAll(), HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -54,10 +54,10 @@ public class ExperienciaLaboralController {
 
 
     @PostMapping(value = "/save",consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseApi> save(@RequestBody ExperienciaLaboral experienciaLaboral){
+    public ResponseEntity<ResponseApi> save(@RequestBody EducacionNoFormal educacionNoFormal){
         try {
-            ExperienciaLaboral e = experienciaLaboralService.save(experienciaLaboral);
-            return new ResponseEntity<ResponseApi>(new ResponseApi("OK", e.getIdExperienciaLaboral(), ""), HttpStatus.CREATED);
+            EducacionNoFormal e = educacionNoFormalService.save(educacionNoFormal);
+            return new ResponseEntity<ResponseApi>(new ResponseApi("OK", e.getIdEstudioNoFormal(), ""), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -66,7 +66,7 @@ public class ExperienciaLaboralController {
     @DeleteMapping(value = "/delete/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseApi> eliminar(@PathVariable String id) {
         try {
-            experienciaLaboralService.deleteById(id);
+            educacionNoFormalService.deleteById(id);
             return new ResponseEntity<ResponseApi>(new ResponseApi("OK",null, ""), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

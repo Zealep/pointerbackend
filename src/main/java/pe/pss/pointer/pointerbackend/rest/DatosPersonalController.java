@@ -50,7 +50,7 @@ public class DatosPersonalController {
     public ResponseEntity<ResponseApi> registrar(@RequestBody DatosPersonal datosPersonal) {
         try {
             DatosPersonal d = datosPersonalService.save(datosPersonal);
-            return new ResponseEntity<ResponseApi>(new ResponseApi("OK", Long.parseLong(d.getIdPostulante()), ""), HttpStatus.CREATED);
+            return new ResponseEntity<ResponseApi>(new ResponseApi("OK", d.getIdPostulante(), ""), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }

@@ -19,6 +19,23 @@ public interface Constantes {
 	public static final String TABLE_EXPERIENCIA_LABORAL= "rh_rl_tz_experiencia_laboral";
 	public static final String ID_TABLE_EXPERIENCIA_LABORAL= "idExperienciaLboral";
 
+	public static final String TABLE_ESTUDIO_FORMAL= "rh_rl_tz_estudio_formal";
+	public static final String ID_TABLE_ESTUDIO_FORMAL= "idEstudioFormal";
+
+	public static final String TABLE_ESTUDIO_NO_FORMAL= "rh_rl_tz_estudio_no_formal";
+	public static final String ID_TABLE_ESTUDIO_NO_FORMAL= "idEstudioNoFormal";
+
+	public static final String TABLE_DATO_ARCHIVO= "rh_tz_dato_archivo";
+	public static final String ID_TABLE_DATO_ARCHIVO= "idDatoArchivo";
+
+	public static final String PROCESO_DATOS_BASICOS = "00024";
+	public static final String PROCESO_ESTUDIOS_FORMALES = "00025";
+	public static final String PROCESO_ESTUDIOS_NO_FORMALES = "00026";
+	public static final String PROCESO_EXPERIENCIA_LABORAL = "00027";
+	public static final String PROCESO_DATOS_FAMILIARES = "00028";
+	public static final String PROCESO_IDIOMAS = "00029";
+
+
 
 	public static final int RESPONSE_OK = 200;
 	public static final int RESPONSE_ERROR = 300;

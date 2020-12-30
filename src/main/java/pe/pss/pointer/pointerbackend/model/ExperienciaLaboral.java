@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class ExperienciaLaboral {
 
     @Id
-    @Column(name = "idExperienciaLaboral")
+    @Column(name = "idExperienciaLboral")
     private String idExperienciaLaboral;
 
     @Column(name = "idEmpresa")
@@ -56,7 +56,19 @@ public class ExperienciaLaboral {
     @Column(name = "fechaRetiro")
     private LocalDate fechaRetiro;
 
-    @Column(name = "indDatoTipoDedicacion")
+    @Column(name = "indTrabajaActualmente")
+    private String indTrabajaActualmente;
+
+    @Column(name = "añoTrabajados")
+    private int añoTrabajados;
+
+    @Column(name = "mesesTrabajados")
+    private int mesesTrabajados;
+
+    @Column(name = "diasTrabajados")
+    private int diasTrabajados;
+
+    @Column(name = "idDatoTipoDedicacion")
     private String indDatoTipoDedicacion;
 
     @Column(name = "cargoDesempeñado")
@@ -86,6 +98,50 @@ public class ExperienciaLaboral {
     @Column(name = "numeroContactoJefe")
     private String numeroContactoJefe;
 
+    /*
+    @Column(name = "numeroFolio")
+    private String numeroFolio;
+*/
+    public String getIndTrabajaActualmente() {
+        return indTrabajaActualmente;
+    }
+
+    public void setIndTrabajaActualmente(String indTrabajaActualmente) {
+        this.indTrabajaActualmente = indTrabajaActualmente;
+    }
+
+    public int getAñoTrabajados() {
+        return añoTrabajados;
+    }
+
+    public void setAñoTrabajados(int añoTrabajados) {
+        this.añoTrabajados = añoTrabajados;
+    }
+
+    public int getMesesTrabajados() {
+        return mesesTrabajados;
+    }
+
+    public void setMesesTrabajados(int mesesTrabajados) {
+        this.mesesTrabajados = mesesTrabajados;
+    }
+
+    public int getDiasTrabajados() {
+        return diasTrabajados;
+    }
+
+    public void setDiasTrabajados(int diasTrabajados) {
+        this.diasTrabajados = diasTrabajados;
+    }
+/*
+    public String getNumeroFolio() {
+        return numeroFolio;
+    }
+
+    public void setNumeroFolio(String numeroFolio) {
+        this.numeroFolio = numeroFolio;
+    }
+*/
     public String getIdExperienciaLaboral() {
         return idExperienciaLaboral;
     }
