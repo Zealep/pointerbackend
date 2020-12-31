@@ -1,4 +1,4 @@
-package pe.pss.pointer.pointerbackend.model.dto;
+package pe.pss.pointer.pointerbackend.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
