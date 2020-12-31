@@ -6,48 +6,49 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "rh_tz_dato_archivo")
+@Table(name = "mg_tz_dato_archivo_persona")
 public class DatoArchivo {
 
     @Id
     @Column(name = "idDatoArchivo")
-    private String idDatoArchivo;
-
-    @Column(name = "idPostulante")
-    private String idPostulante;
+    private String idDatoArchivoPersona;
 
     @Column(name = "idEmpresa")
     private String idEmpresa;
 
+    @Column(name = "idTipoDocumentoIdentidad")
+    private String idTipoDocumentoIdentidad;
+
+    @Column(name = "numeroDocumento")
+    private String numeroDocumento;
+
     @Column(name = "idCodigoRelacional")
     private String idCodigoRelacional;
+
+    @Column(name = "idDocumento")
+    private String idDocumento;
 
     @Column(name = "idProceso")
     private String idProceso;
 
-    @Column(name = "nombre")
-    private String nombre;
+    @Column(name = "nombreArchivo")
+    private String nombreArchivo;
 
-    @Column(name = "tipo")
-    private String tipo;
+    @Column(name = "tipoArchivo")
+    private String tipoArchivo;
 
-    @Column(name = "peso")
-    private String peso;
+    @Column(name = "pesoArchivo")
+    private String pesoArchivo;
 
-    public String getIdPostulante() {
-        return idPostulante;
+    @Column(name = "pathArchivo")
+    private String pathArchivo;
+
+    public String getIdDatoArchivoPersona() {
+        return idDatoArchivoPersona;
     }
 
-    public void setIdPostulante(String idPostulante) {
-        this.idPostulante = idPostulante;
-    }
-
-    public String getIdDatoArchivo() {
-        return idDatoArchivo;
-    }
-
-    public void setIdDatoArchivo(String idDatoArchivo) {
-        this.idDatoArchivo = idDatoArchivo;
+    public void setIdDatoArchivoPersona(String idDatoArchivoPersona) {
+        this.idDatoArchivoPersona = idDatoArchivoPersona;
     }
 
     public String getIdEmpresa() {
@@ -58,12 +59,36 @@ public class DatoArchivo {
         this.idEmpresa = idEmpresa;
     }
 
+    public String getIdTipoDocumentoIdentidad() {
+        return idTipoDocumentoIdentidad;
+    }
+
+    public void setIdTipoDocumentoIdentidad(String idTipoDocumentoIdentidad) {
+        this.idTipoDocumentoIdentidad = idTipoDocumentoIdentidad;
+    }
+
+    public String getNumeroDocumento() {
+        return numeroDocumento;
+    }
+
+    public void setNumeroDocumento(String numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
+    }
+
     public String getIdCodigoRelacional() {
         return idCodigoRelacional;
     }
 
     public void setIdCodigoRelacional(String idCodigoRelacional) {
         this.idCodigoRelacional = idCodigoRelacional;
+    }
+
+    public String getIdDocumento() {
+        return idDocumento;
+    }
+
+    public void setIdDocumento(String idDocumento) {
+        this.idDocumento = idDocumento;
     }
 
     public String getIdProceso() {
@@ -74,27 +99,35 @@ public class DatoArchivo {
         this.idProceso = idProceso;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreArchivo() {
+        return nombreArchivo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreArchivo(String nombreArchivo) {
+        this.nombreArchivo = nombreArchivo;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getTipoArchivo() {
+        return tipoArchivo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipoArchivo(String tipoArchivo) {
+        this.tipoArchivo = tipoArchivo;
     }
 
-    public String getPeso() {
-        return peso;
+    public String getPesoArchivo() {
+        return pesoArchivo;
     }
 
-    public void setPeso(String peso) {
-        this.peso = peso;
+    public void setPesoArchivo(String pesoArchivo) {
+        this.pesoArchivo = pesoArchivo;
+    }
+
+    public String getPathArchivo() {
+        return pathArchivo;
+    }
+
+    public void setPathArchivo(String pathArchivo) {
+        this.pathArchivo = pathArchivo;
     }
 }

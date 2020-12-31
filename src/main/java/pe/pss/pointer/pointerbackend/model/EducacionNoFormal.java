@@ -29,6 +29,9 @@ public class EducacionNoFormal {
     @Column(name = "nombreEstudioEspecifico")
     private String nombreEstudioEspecifico;
 
+    @Column(name = "idDatoCentroEstudio")
+    private String idDatoCentroEstudio;
+
     @Column(name = "nombreCentroEstudio")
     private String nombreCentroEstudio;
 
@@ -47,8 +50,8 @@ public class EducacionNoFormal {
     @Column(name = "tiempoEstudiado")
     private Double tiempoEstudiado;
 
-    @Column(name = "idDatoTiempoUnidad")
-    private String idDatoTiempoUnidad;
+    @Column(name = "idDatoUnidadTiempo")
+    private String idDatoUnidadTiempo;
 
     @Column(name = "promedioPonderado")
     private Double promedioPonderado;
@@ -64,6 +67,14 @@ public class EducacionNoFormal {
 
     public String getIdEstudioNoFormal() {
         return idEstudioNoFormal;
+    }
+
+    public String getIdDatoCentroEstudio() {
+        return idDatoCentroEstudio;
+    }
+
+    public void setIdDatoCentroEstudio(String idDatoCentroEstudio) {
+        this.idDatoCentroEstudio = idDatoCentroEstudio;
     }
 
     public void setIdEstudioNoFormal(String idEstudioNoFormal) {
@@ -158,12 +169,12 @@ public class EducacionNoFormal {
         this.tiempoEstudiado = tiempoEstudiado;
     }
 
-    public String getIdDatoTiempoUnidad() {
-        return idDatoTiempoUnidad;
+    public String getIdDatoUnidadTiempo() {
+        return idDatoUnidadTiempo;
     }
 
-    public void setIdDatoTiempoUnidad(String idDatoTiempoUnidad) {
-        this.idDatoTiempoUnidad = idDatoTiempoUnidad;
+    public void setIdDatoUnidadTiempo(String idDatoUnidadTiempo) {
+        this.idDatoUnidadTiempo = idDatoUnidadTiempo;
     }
 
     public Double getPromedioPonderado() {

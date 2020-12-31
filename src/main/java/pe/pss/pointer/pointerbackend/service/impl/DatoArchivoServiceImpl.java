@@ -1,5 +1,6 @@
 package pe.pss.pointer.pointerbackend.service.impl;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import pe.pss.pointer.pointerbackend.service.DatoArchivoService;
 import pe.pss.pointer.pointerbackend.service.DatosPersonalService;
 import pe.pss.pointer.pointerbackend.util.Constantes;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -49,16 +51,16 @@ public class DatoArchivoServiceImpl implements DatoArchivoService {
 
     @Override
     public DatoArchivo save(DatoArchivo d, MultipartFile file) {
-        if(d.getIdDatoArchivo()==null) {
+        if(d.getIdDatoArchivoPersona()==null) {
             String pk = datoArchivoRepository.generatePrimaryKeyDatoArchivo(Constantes.TABLE_DATO_ARCHIVO, Constantes.ID_TABLE_DATO_ARCHIVO, Constantes.CODIGO_EMPRESA);
-            d.setIdDatoArchivo(pk);
+            d.setIdDatoArchivoPersona(pk);
         }
         d.setIdEmpresa(Constantes.CODIGO_EMPRESA);
 
-        DatosPersonal datosPersonal = datosPersonalService.findById(d.getIdPostulante());
 
         try {
-            Path path = Paths.get(URL_PATH_BASE_ATTACHMENT + "/"+datosPersonal.getNumeroDocumento() +"/"+ getNameProcess(d.getIdProceso()) + "/"+d.getIdCodigoRelacional());
+           // String url = "/"+datosPersonal.getNumeroDocumento() +"/"+ getNameProcess(d.getIdProceso()) + "/"+d.getIdCodigoRelacional();
+            Path path = Paths.get(URL_PATH_BASE_ATTACHMENT);
             boolean dirExist = Files.exists(path);
             if (!dirExist) {
                 Files.createDirectories(path);
@@ -80,6 +82,17 @@ public class DatoArchivoServiceImpl implements DatoArchivoService {
     @Override
     public void deleteById(String id) {
         datoArchivoRepository.deleteById(id);
+    }
+
+    @Override
+    public byte[] getFile(String url) {
+        try {
+            String path = URL_PATH_BASE_ATTACHMENT + url;
+            return FileUtils.readFileToByteArray(new File(path));
+        }catch (IOException i){
+            return null;
+        }
+
     }
 
     private String getNameProcess(String code){

@@ -38,8 +38,8 @@ public class EducacionFormal {
     @Column(name = "tiempoEstudiado")
     private Double tiempoEstudiado;
 
-    @Column(name = "idDatoTiempoUnidad")
-    private String idDatoTiempoUnidad;
+    @Column(name = "idDatoUnidadTiempo")
+    private String idDatoUnidadTiempo;
 
     @Column(name = "promedioPonderado")
     private Double promedioPonderado;
@@ -137,12 +137,12 @@ public class EducacionFormal {
         this.tiempoEstudiado = tiempoEstudiado;
     }
 
-    public String getIdDatoTiempoUnidad() {
-        return idDatoTiempoUnidad;
+    public String getIdDatoUnidadTiempo() {
+        return idDatoUnidadTiempo;
     }
 
-    public void setIdDatoTiempoUnidad(String idDatoTiempoUnidad) {
-        this.idDatoTiempoUnidad = idDatoTiempoUnidad;
+    public void setIdDatoUnidadTiempo(String idDatoUnidadTiempo) {
+        this.idDatoUnidadTiempo = idDatoUnidadTiempo;
     }
 
     public Double getPromedioPonderado() {
