@@ -1,6 +1,7 @@
 package pe.pss.pointer.pointerbackend.service.impl;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -51,6 +52,7 @@ public class DatoArchivoServiceImpl implements DatoArchivoService {
 
     @Override
     public DatoArchivo save(DatoArchivo d, MultipartFile file) {
+
         if(d.getIdDatoArchivoPersona()==null) {
             String pk = datoArchivoRepository.generatePrimaryKeyDatoArchivo(Constantes.TABLE_DATO_ARCHIVO, Constantes.ID_TABLE_DATO_ARCHIVO, Constantes.CODIGO_EMPRESA);
             d.setIdDatoArchivoPersona(pk);
@@ -59,8 +61,8 @@ public class DatoArchivoServiceImpl implements DatoArchivoService {
 
 
         try {
-           // String url = "/"+datosPersonal.getNumeroDocumento() +"/"+ getNameProcess(d.getIdProceso()) + "/"+d.getIdCodigoRelacional();
-            Path path = Paths.get(URL_PATH_BASE_ATTACHMENT);
+            String url = "/"+d.getNumeroDocumento() +"/"+ d.getIdProceso() + "/"+d.getIdCodigoRelacional();
+            Path path = Paths.get(URL_PATH_BASE_ATTACHMENT+url);
             boolean dirExist = Files.exists(path);
             if (!dirExist) {
                 Files.createDirectories(path);
@@ -69,7 +71,10 @@ public class DatoArchivoServiceImpl implements DatoArchivoService {
             Path nameImage = Paths.get(file.getOriginalFilename());
             Path targetLocation = path.resolve(nameImage);
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
-
+            d.setNombreArchivo(file.getOriginalFilename());
+            d.setPathArchivo(url+"/"+file.getOriginalFilename());
+            d.setTipoArchivo(FilenameUtils.getExtension(file.getOriginalFilename()));
+            d.setPesoArchivo(String.valueOf(file.getSize()));
             datoArchivoRepository.save(d);
 
         } catch (IOException e) {
@@ -88,7 +93,7 @@ public class DatoArchivoServiceImpl implements DatoArchivoService {
     public byte[] getFile(String url) {
         try {
             String path = URL_PATH_BASE_ATTACHMENT + url;
-            return FileUtils.readFileToByteArray(new File(path));
+            return FileUtils.readFileToByteArray(new File(FilenameUtils.separatorsToSystem(path)));
         }catch (IOException i){
             return null;
         }

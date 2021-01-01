@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class DatoArchivo {
 
     @Id
-    @Column(name = "idDatoArchivo")
+    @Column(name = "idDatoArchivoPersona")
     private String idDatoArchivoPersona;
 
     @Column(name = "idEmpresa")
