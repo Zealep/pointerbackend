@@ -4,129 +4,130 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Table (name = "rh_rl_tz_postulante")
-public class DatosPersonal {
+public class DatosPersonal implements Serializable {
 
     @Id
     @Column(name = "idPostulante")
-    String idPostulante;
+    private String idPostulante;
 
     @Column(name = "idUsuarioWeb")
-    String idUsuarioWeb;
+    private String idUsuarioWeb;
 
     @Column(name = "idEmpresa")
-    String idEmpresa;
+    private String idEmpresa;
 
     @ManyToOne
     @JoinColumn(name = "idTipoDocumentoIdentidad")
-    TipoDocumentosIdentidad tipoDocumentosIdentidad;
+    private TipoDocumentosIdentidad tipoDocumentosIdentidad;
 
     @Column(name = "numeroDocumento")
-    String numeroDocumento;
+    private String numeroDocumento;
 
     @Column(name = "apellidoPaterno")
-    String apellidoPaterno;
+    private String apellidoPaterno;
 
     @Column(name = "apellidoMaterno")
-    String apellidoMaterno;
+    private String apellidoMaterno;
 
     @Column(name = "nombres")
-    String nombres;
+    private String nombres;
 
     @Column(name = "idDatoGenero")
-    String idDatoGenero;
+    private String idDatoGenero;
 
     @Column(name = "idDatoEstadoCivil")
-    String idDatoEstadoCivil;
+    private String idDatoEstadoCivil;
 
     @JsonSerialize(using= ToStringSerializer.class)
     @Column(name = "fechaNacimiento")
-    LocalDate fechaNacimiento;
+    private LocalDate fechaNacimiento;
 
     @Column(name = "idDatoPaisNacimiento")
-    String idDatoPaisNacimiento;
+    private String idDatoPaisNacimiento;
 
     @Column(name = "idDptoNacimiento")
-    String idDptoNacimiento;
+    private String idDptoNacimiento;
 
     @Column(name = "idProvNacimiento")
-    String idProvNacimiento;
+    private String idProvNacimiento;
 
     @Column(name = "idDistNacimiento")
-    String idDistNacimiento;
+    private String idDistNacimiento;
 
     @Column(name = "idDatoPaisResidencia")
-    String idDatoPaisResidencia;
+    private String idDatoPaisResidencia;
 
     @Column(name = "idDptoResidencia")
-    String idDptoResidencia;
+    private String idDptoResidencia;
 
     @Column(name = "idProvResidencia")
-    String idProvResidencia;
+    private String idProvResidencia;
 
     @Column(name = "idDisResidencia")
-    String idDisResidencia;
+    private String idDisResidencia;
 
     @Column(name = "iddatoSunatTipoVia")
-    String iddatoSunatTipoVia;
+    private String iddatoSunatTipoVia;
 
     @Column(name = "nombreVia")
-    String nombreVia;
+    private String nombreVia;
 
     @Column(name = "numeroVia")
-    int numeroVia;
+    private int numeroVia;
 
     @Column(name = "interior")
-    String interior;
+    private String interior;
 
     @Column(name = "iddatoSunatTipoZona")
-    String iddatoSunatTipoZona;
+    private String iddatoSunatTipoZona;
 
     @Column(name = "nombreZona")
-    String nombreZona;
+    private String nombreZona;
 
     @Column(name = "referencia")
-    String referencia;
+    private String referencia;
 
     @Column(name = "telefonoFijo")
-    int telefonoFijo;
+    private int telefonoFijo;
 
     @Column(name = "telefonoMovil")
-    int telefonoMovil;
+    private int telefonoMovil;
 
     @Column(name = "indAceptoDatosPersonales")
-    String indAceptoDatosPersonales;
+    private String indAceptoDatosPersonales;
 
     @Column(name = "indDispViajarInterior")
-    String indDispViajarInterior;
+    private String indDispViajarInterior;
 
     @Column(name = "indDispViajarExterior")
-    String indDispViajarExterior;
+    private String indDispViajarExterior;
 
     @Column(name = "indDispInmediata")
-    String indDispInmediata;
+    private String indDispInmediata;
 
     @Column(name = "tiempoDisponibilidad")
-    String tiempoDisponibilidad;
+    private String tiempoDisponibilidad;
 
     @Column(name = "idCargo")
-    String idCargo;
+    private String idCargo;
 
     @Column(name = "expectativaSalarial")
-    double expectativaSalarial;
+    private double expectativaSalarial;
 
     @Column(name = "idMedioInformativo")
-    String idMedioInformativo;
+    private String idMedioInformativo;
 
     @Column(name = "indTieneDiscapacidad")
-    String indTieneDiscapacidad;
+    private String indTieneDiscapacidad;
 
     @Column(name = "numeroConadis")
-    int numeroConadis;
+    private int numeroConadis;
 
     public String getIdPostulante() {
         return idPostulante;
@@ -431,5 +432,6 @@ public class DatosPersonal {
     public void setNumeroConadis(int numeroConadis) {
         this.numeroConadis = numeroConadis;
     }
+
 
 }

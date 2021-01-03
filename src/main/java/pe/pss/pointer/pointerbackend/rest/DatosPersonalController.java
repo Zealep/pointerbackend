@@ -52,6 +52,7 @@ public class DatosPersonalController {
             DatosPersonal d = datosPersonalService.save(datosPersonal);
             return new ResponseEntity<ResponseApi>(new ResponseApi("OK", d.getIdPostulante(), ""), HttpStatus.CREATED);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 

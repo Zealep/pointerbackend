@@ -1,5 +1,6 @@
 package pe.pss.pointer.pointerbackend.repository;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import pe.pss.pointer.pointerbackend.model.AreaInteres;

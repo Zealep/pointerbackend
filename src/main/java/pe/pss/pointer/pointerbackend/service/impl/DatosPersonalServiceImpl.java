@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.pss.pointer.pointerbackend.model.DatosPersonal;
 import pe.pss.pointer.pointerbackend.model.Usuario;
+import pe.pss.pointer.pointerbackend.repository.AreaInteresRepository;
 import pe.pss.pointer.pointerbackend.repository.DatosPersonalRepository;
 import pe.pss.pointer.pointerbackend.service.DatosPersonalService;
 import pe.pss.pointer.pointerbackend.util.Constantes;
@@ -15,6 +16,9 @@ public class DatosPersonalServiceImpl implements DatosPersonalService {
 
     @Autowired
     DatosPersonalRepository datosPersonalRepository;
+
+    @Autowired
+    AreaInteresRepository areaInteresRepository;
 
     @Override
     public DatosPersonal findById(String id) {

@@ -20,12 +20,15 @@ public class AreaInteresServiceImpl implements AreaInteresService {
 
     @Override
     public AreaInteres save(AreaInteres a) {
-
-        String pk = datosPersonalRepository.generatePrimaryKeyPostulante(Constantes.TABLE_AREA_INTERES,Constantes.ID_TABLE_AREA_INTERES,Constantes.CODIGO_EMPRESA);
-       a.setIdPostulanteAreas(pk);
-       a.setIdEmpresa(Constantes.CODIGO_EMPRESA);
+        if(a.getIdPostulanteAreas()==null){
+            String pk = datosPersonalRepository.generatePrimaryKeyPostulante(Constantes.TABLE_AREA_INTERES,Constantes.ID_TABLE_AREA_INTERES,Constantes.CODIGO_EMPRESA);
+            a.setIdPostulanteAreas(pk);
+        }
+        a.setIdEmpresa(Constantes.CODIGO_EMPRESA);
         return areaInteresRepository.save(a);
+
     }
+
 
     @Override
     public List<AreaInteres> findByIdPostulante(String id) {
