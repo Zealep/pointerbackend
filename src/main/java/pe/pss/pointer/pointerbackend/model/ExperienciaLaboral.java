@@ -69,7 +69,13 @@ public class ExperienciaLaboral {
     private int diasTrabajados;
 
     @Column(name = "idDatoTipoDedicacion")
-    private String indDatoTipoDedicacion;
+    private String idDatoTipoDedicacion;
+
+    @Column(name = "idDatoTipoContrato")
+    private String idDatoTipoContrato;
+
+    @Column(name = "idDatoMotivoRetiro")
+    private String idDatoMotivoRetiro;
 
     @Column(name = "cargoDesempeñado")
     private String cargoDesempeñado;
@@ -98,10 +104,10 @@ public class ExperienciaLaboral {
     @Column(name = "numeroContactoJefe")
     private String numeroContactoJefe;
 
-    /*
+
     @Column(name = "numeroFolio")
     private String numeroFolio;
-*/
+
     public String getIndTrabajaActualmente() {
         return indTrabajaActualmente;
     }
@@ -133,7 +139,7 @@ public class ExperienciaLaboral {
     public void setDiasTrabajados(int diasTrabajados) {
         this.diasTrabajados = diasTrabajados;
     }
-/*
+
     public String getNumeroFolio() {
         return numeroFolio;
     }
@@ -141,7 +147,23 @@ public class ExperienciaLaboral {
     public void setNumeroFolio(String numeroFolio) {
         this.numeroFolio = numeroFolio;
     }
-*/
+
+    public String getIdDatoTipoContrato() {
+        return idDatoTipoContrato;
+    }
+
+    public void setIdDatoTipoContrato(String idDatoTipoContrato) {
+        this.idDatoTipoContrato = idDatoTipoContrato;
+    }
+
+    public String getIdDatoMotivoRetiro() {
+        return idDatoMotivoRetiro;
+    }
+
+    public void setIdDatoMotivoRetiro(String idDatoMotivoRetiro) {
+        this.idDatoMotivoRetiro = idDatoMotivoRetiro;
+    }
+
     public String getIdExperienciaLaboral() {
         return idExperienciaLaboral;
     }
@@ -262,12 +284,12 @@ public class ExperienciaLaboral {
         this.fechaRetiro = fechaRetiro;
     }
 
-    public String getIndDatoTipoDedicacion() {
-        return indDatoTipoDedicacion;
+    public String getIdDatoTipoDedicacion() {
+        return idDatoTipoDedicacion;
     }
 
-    public void setIndDatoTipoDedicacion(String indDatoTipoDedicacion) {
-        this.indDatoTipoDedicacion = indDatoTipoDedicacion;
+    public void setIdDatoTipoDedicacion(String idDatoTipoDedicacion) {
+        this.idDatoTipoDedicacion = idDatoTipoDedicacion;
     }
 
     public String getCargoDesempeñado() {
