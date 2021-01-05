@@ -1,9 +1,6 @@
 package pe.pss.pointer.pointerbackend.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -12,8 +9,8 @@ import java.time.LocalDate;
 public class Familia implements Serializable {
 
     @Id
-    @Column(name = "idDatoFamilia")
-    private String idDatoFamilia;
+    @Column(name = "idFamilia")
+    private String idFamilia;
 
     @Column(name = "idEmpresa")
     private String idEmpresa;
@@ -21,8 +18,9 @@ public class Familia implements Serializable {
     @Column(name = "idPostulante")
     private String idPostulante;
 
-    @Column(name = "idTipoDocumentoIdentidad")
-    private String idTipoDocumentoIdentidad;
+    @ManyToOne
+    @JoinColumn(name = "idTipoDocumentoIdentidad")
+    private TipoDocumentosIdentidad tipoDocumentosIdentidad;
 
     @Column(name = "numeroDocumento")
     private String numeroDocumento;
@@ -60,12 +58,23 @@ public class Familia implements Serializable {
     @Column(name = "idProvNacimiento")
     private String idProvNacimiento;
 
-    public String getIdDatoFamilia() {
-        return idDatoFamilia;
+    @Column(name = "idDistNacimiento")
+    private String idDistNacimiento;
+
+    public String getIdDistNacimiento() {
+        return idDistNacimiento;
     }
 
-    public void setIdDatoFamilia(String idDatoFamilia) {
-        this.idDatoFamilia = idDatoFamilia;
+    public void setIdDistNacimiento(String idDistNacimiento) {
+        this.idDistNacimiento = idDistNacimiento;
+    }
+
+    public String getIdFamilia() {
+        return idFamilia;
+    }
+
+    public void setIdFamilia(String idFamilia) {
+        this.idFamilia = idFamilia;
     }
 
     public String getIdEmpresa() {
@@ -84,12 +93,12 @@ public class Familia implements Serializable {
         this.idPostulante = idPostulante;
     }
 
-    public String getIdTipoDocumentoIdentidad() {
-        return idTipoDocumentoIdentidad;
+    public TipoDocumentosIdentidad getTipoDocumentosIdentidad() {
+        return tipoDocumentosIdentidad;
     }
 
-    public void setIdTipoDocumentoIdentidad(String idTipoDocumentoIdentidad) {
-        this.idTipoDocumentoIdentidad = idTipoDocumentoIdentidad;
+    public void setTipoDocumentosIdentidad(TipoDocumentosIdentidad tipoDocumentosIdentidad) {
+        this.tipoDocumentosIdentidad = tipoDocumentosIdentidad;
     }
 
     public String getNumeroDocumento() {

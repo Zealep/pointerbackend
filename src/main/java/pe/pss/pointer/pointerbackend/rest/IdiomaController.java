@@ -57,7 +57,7 @@ public class IdiomaController {
     public ResponseEntity<ResponseApi> save(@RequestBody Idioma idioma){
         try {
             Idioma e = idiomaService.save(idioma);
-            return new ResponseEntity<ResponseApi>(new ResponseApi("OK", e.getIdDatoIdioma(), ""), HttpStatus.CREATED);
+            return new ResponseEntity<ResponseApi>(new ResponseApi("OK", e.getIdIdioma(), ""), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }

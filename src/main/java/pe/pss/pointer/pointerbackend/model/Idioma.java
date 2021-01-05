@@ -11,8 +11,11 @@ import java.io.Serializable;
 public class Idioma implements Serializable {
 
     @Id
-    @Column(name = "idDatoIdioma")
-    private String idDatoIdioma;
+    @Column(name = "idIdioma")
+    private String idIdioma;
+
+    @Column(name = "nombreIdioma")
+    private String nombreIdioma;
 
     @Column(name = "idEmpresa")
     private String idEmpresa;
@@ -29,12 +32,20 @@ public class Idioma implements Serializable {
     @Column(name = "idDatoNivelEscribeIdioma")
     private String idDatoNivelEscribeIdioma;
 
-    public String getIdDatoIdioma() {
-        return idDatoIdioma;
+    public String getNombreIdioma() {
+        return nombreIdioma;
     }
 
-    public void setIdDatoIdioma(String idDatoIdioma) {
-        this.idDatoIdioma = idDatoIdioma;
+    public void setNombreIdioma(String nombreIdioma) {
+        this.nombreIdioma = nombreIdioma;
+    }
+
+    public String getIdIdioma() {
+        return idIdioma;
+    }
+
+    public void setIdIdioma(String idIdioma) {
+        this.idIdioma = idIdioma;
     }
 
     public String getIdEmpresa() {

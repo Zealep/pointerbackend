@@ -35,9 +35,9 @@ public class IdiomaServiceImpl implements IdiomaService {
 
     @Override
     public Idioma save(Idioma d) {
-        if(d.getIdDatoIdioma()==null) {
+        if(d.getIdIdioma()==null) {
             String pk = idiomaRepository.generatePrimaryKeyIdioma(Constantes.TABLE_DATO_IDIOMA, Constantes.ID_TABLE_DATO_IDIOMA, Constantes.CODIGO_EMPRESA);
-            d.setIdDatoIdioma(pk);
+            d.setIdIdioma(pk);
         }
         d.setIdEmpresa(Constantes.CODIGO_EMPRESA);
         return idiomaRepository.save(d);

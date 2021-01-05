@@ -35,9 +35,9 @@ public class FamiliaServiceImpl implements FamiliaService {
 
     @Override
     public Familia save(Familia d) {
-        if(d.getIdDatoFamilia()==null) {
+        if(d.getIdFamilia()==null) {
             String pk = familiaRepository.generatePrimaryKeyFamilia(Constantes.TABLE_DATO_FAMILIA, Constantes.ID_TABLE_DATO_FAMILIA, Constantes.CODIGO_EMPRESA);
-            d.setIdDatoFamilia(pk);
+            d.setIdFamilia(pk);
         }
         d.setIdEmpresa(Constantes.CODIGO_EMPRESA);
         return familiaRepository.save(d);

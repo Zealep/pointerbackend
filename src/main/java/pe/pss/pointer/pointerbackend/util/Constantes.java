@@ -29,10 +29,10 @@ public interface Constantes {
 	public static final String ID_TABLE_DATO_ARCHIVO= "idDatoArchivoPersona";
 
 	public static final String TABLE_DATO_IDIOMA= "rh_rl_tz_idioma";
-	public static final String ID_TABLE_DATO_IDIOMA= "idDatoIdioma";
+	public static final String ID_TABLE_DATO_IDIOMA= "idIdioma";
 
 	public static final String TABLE_DATO_FAMILIA= "rh_rl_tz_familia";
-	public static final String ID_TABLE_DATO_FAMILIA= "idDatoFamilia";
+	public static final String ID_TABLE_DATO_FAMILIA= "idFamilia";
 
 	public static final String PROCESO_DATOS_BASICOS = "00024";
 	public static final String PROCESO_ESTUDIOS_FORMALES = "00025";

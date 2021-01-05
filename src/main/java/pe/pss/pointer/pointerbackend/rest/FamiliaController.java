@@ -57,7 +57,7 @@ public class FamiliaController {
     public ResponseEntity<ResponseApi> save(@RequestBody Familia familia){
         try {
             Familia e = familiaService.save(familia);
-            return new ResponseEntity<ResponseApi>(new ResponseApi("OK", e.getIdDatoFamilia(), ""), HttpStatus.CREATED);
+            return new ResponseEntity<ResponseApi>(new ResponseApi("OK", e.getIdFamilia(), ""), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
