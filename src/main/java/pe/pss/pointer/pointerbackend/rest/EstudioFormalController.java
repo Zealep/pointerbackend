@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.pss.pointer.pointerbackend.model.EducacionFormal;
 import pe.pss.pointer.pointerbackend.model.ExperienciaLaboral;
+import pe.pss.pointer.pointerbackend.model.dto.EstudioFormalDTO;
+import pe.pss.pointer.pointerbackend.model.dto.FamiliaDTO;
 import pe.pss.pointer.pointerbackend.service.EducacionFormalService;
 import pe.pss.pointer.pointerbackend.service.ExperienciaLaboralService;
 import pe.pss.pointer.pointerbackend.util.ResponseApi;
@@ -46,6 +48,16 @@ public class EstudioFormalController {
     public ResponseEntity<List<EducacionFormal>> list(){
         try{
             return new ResponseEntity<List<EducacionFormal>>((List<EducacionFormal>) educacionFormalService.findAll(), HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping(value = "/getDetailsByPostulante/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<EstudioFormalDTO>> listDetallesPorPostulante(@PathVariable String id){
+        try{
+            return new ResponseEntity<List<EstudioFormalDTO>>((List<EstudioFormalDTO>) educacionFormalService.getFormalesDetailsByPostulante(id), HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

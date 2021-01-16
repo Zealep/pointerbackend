@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.pss.pointer.pointerbackend.model.EducacionFormal;
 import pe.pss.pointer.pointerbackend.model.Idioma;
+import pe.pss.pointer.pointerbackend.model.dto.IdiomaDTO;
 import pe.pss.pointer.pointerbackend.repository.EducacionFormalRepository;
 import pe.pss.pointer.pointerbackend.repository.IdiomaRepository;
+import pe.pss.pointer.pointerbackend.repository.jdbc.IdiomaJdbcRepository;
 import pe.pss.pointer.pointerbackend.service.EducacionFormalService;
 import pe.pss.pointer.pointerbackend.service.IdiomaService;
 import pe.pss.pointer.pointerbackend.util.Constantes;
@@ -17,6 +19,9 @@ public class IdiomaServiceImpl implements IdiomaService {
 
     @Autowired
     IdiomaRepository idiomaRepository;
+
+    @Autowired
+    IdiomaJdbcRepository idiomaJdbcRepository;
 
     @Override
     public Idioma findById(String id) {
@@ -46,5 +51,10 @@ public class IdiomaServiceImpl implements IdiomaService {
     @Override
     public void deleteById(String id) {
         idiomaRepository.deleteById(id);
+    }
+
+    @Override
+    public List<IdiomaDTO> getIdiomasDetailsByPostulante(String id) {
+        return idiomaJdbcRepository.getIdiomasByPostulante(id);
     }
 }

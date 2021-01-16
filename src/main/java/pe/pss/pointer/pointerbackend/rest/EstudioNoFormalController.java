@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.pss.pointer.pointerbackend.model.EducacionFormal;
 import pe.pss.pointer.pointerbackend.model.EducacionNoFormal;
+import pe.pss.pointer.pointerbackend.model.dto.EstudioFormalDTO;
+import pe.pss.pointer.pointerbackend.model.dto.EstudioNoFormalDTO;
 import pe.pss.pointer.pointerbackend.service.EducacionFormalService;
 import pe.pss.pointer.pointerbackend.service.EducacionNoFormalService;
 import pe.pss.pointer.pointerbackend.util.ResponseApi;
@@ -46,6 +48,16 @@ public class EstudioNoFormalController {
     public ResponseEntity<List<EducacionNoFormal>> list(){
         try{
             return new ResponseEntity<List<EducacionNoFormal>>((List<EducacionNoFormal>) educacionNoFormalService.findAll(), HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping(value = "/getDetailsByPostulante/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<EstudioNoFormalDTO>> listDetallesPorPostulante(@PathVariable String id){
+        try{
+            return new ResponseEntity<List<EstudioNoFormalDTO>>((List<EstudioNoFormalDTO>) educacionNoFormalService.getNoFormalesDetailsByPostulante(id), HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

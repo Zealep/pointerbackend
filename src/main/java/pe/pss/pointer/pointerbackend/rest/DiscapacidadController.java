@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.pss.pointer.pointerbackend.model.AreaInteres;
 import pe.pss.pointer.pointerbackend.model.Discapacidad;
+import pe.pss.pointer.pointerbackend.model.dto.AreaInteresDTO;
+import pe.pss.pointer.pointerbackend.model.dto.DiscapacidadDTO;
 import pe.pss.pointer.pointerbackend.repository.AreaInteresRepository;
 import pe.pss.pointer.pointerbackend.repository.DiscapacidadRepository;
 import pe.pss.pointer.pointerbackend.service.DiscapacidadService;
@@ -26,6 +28,16 @@ public class DiscapacidadController {
     public ResponseEntity<List<Discapacidad>> listDiscapacidadesPorPostulante(@PathVariable String id){
         try{
             return new ResponseEntity<List<Discapacidad>>((List<Discapacidad>) discapacidadService.findByIdPostulante(id), HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping(value = "/getDetailsByPostulante/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<DiscapacidadDTO>> listDetallesPorPostulante(@PathVariable String id){
+        try{
+            return new ResponseEntity<List<DiscapacidadDTO>>((List<DiscapacidadDTO>) discapacidadService.getDiscapacidadesDetailsByPostulante(id), HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

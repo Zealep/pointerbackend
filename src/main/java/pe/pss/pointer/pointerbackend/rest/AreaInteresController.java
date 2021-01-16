@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import pe.pss.pointer.pointerbackend.model.AreaInteres;
 import pe.pss.pointer.pointerbackend.model.DatosPersonal;
 import pe.pss.pointer.pointerbackend.model.Discapacidad;
+import pe.pss.pointer.pointerbackend.model.dto.AreaInteresDTO;
+import pe.pss.pointer.pointerbackend.model.dto.EstudioFormalDTO;
 import pe.pss.pointer.pointerbackend.repository.AreaInteresRepository;
 import pe.pss.pointer.pointerbackend.service.AreaInteresService;
 import pe.pss.pointer.pointerbackend.util.ResponseApi;
@@ -35,6 +37,16 @@ public class AreaInteresController {
     public ResponseEntity<List<AreaInteres>> listAreas(){
         try{
             return new ResponseEntity<List<AreaInteres>>((List<AreaInteres>) areaInteresService.findAll(), HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping(value = "/getDetailsByPostulante/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<AreaInteresDTO>> listDetallesPorPostulante(@PathVariable String id){
+        try{
+            return new ResponseEntity<List<AreaInteresDTO>>((List<AreaInteresDTO>) areaInteresService.getAreasDetailsByPostulante(id), HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.pss.pointer.pointerbackend.model.AreaInteres;
 import pe.pss.pointer.pointerbackend.model.Discapacidad;
+import pe.pss.pointer.pointerbackend.model.dto.DiscapacidadDTO;
 import pe.pss.pointer.pointerbackend.repository.AreaInteresRepository;
 import pe.pss.pointer.pointerbackend.repository.DatosPersonalRepository;
 import pe.pss.pointer.pointerbackend.repository.DiscapacidadRepository;
+import pe.pss.pointer.pointerbackend.repository.jdbc.DiscapacidadJdbcRepository;
 import pe.pss.pointer.pointerbackend.service.AreaInteresService;
 import pe.pss.pointer.pointerbackend.service.DiscapacidadService;
 import pe.pss.pointer.pointerbackend.util.Constantes;
@@ -20,6 +22,9 @@ public class DiscapacidadServiceImpl implements DiscapacidadService {
 
     @Autowired
     DatosPersonalRepository datosPersonalRepository;
+
+    @Autowired
+    DiscapacidadJdbcRepository discapacidadJdbcRepository;
 
     @Override
     public Discapacidad save(Discapacidad a) {
@@ -42,5 +47,10 @@ public class DiscapacidadServiceImpl implements DiscapacidadService {
     @Override
     public List<Discapacidad> findAll() {
         return (List<Discapacidad>) discapacidadRepository.findAll();
+    }
+
+    @Override
+    public List<DiscapacidadDTO> getDiscapacidadesDetailsByPostulante(String id) {
+        return discapacidadJdbcRepository.getDiscapacidadesByPostulante(id);
     }
 }

@@ -33,10 +33,10 @@ public class DatoArchivoController {
 
     }
 
-    @GetMapping(value = "/getByCodigoRelacional/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<DatoArchivo>> getArchivosByCodigoRelacional(@PathVariable(value = "id")String codigoRelacional){
+    @GetMapping(value = "/getByCodigoRelacional/{id}/{proceso}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<DatoArchivo>> getArchivosByCodigoRelacional(@PathVariable(value = "id")String codigoRelacional,@PathVariable(value = "proceso")String idProceso){
         try {
-            return new ResponseEntity<List<DatoArchivo>>(datoArchivoService.findByIdCodigoRelacional(codigoRelacional),HttpStatus.OK);
+            return new ResponseEntity<List<DatoArchivo>>(datoArchivoService.findByIdCodigoRelacional(codigoRelacional,idProceso),HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

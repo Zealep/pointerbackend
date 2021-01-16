@@ -23,14 +23,14 @@ public class EducacionFormal {
     @Column(name = "idDatoModalidadAcademica")
     private String idDatoModalidadAcademica;
 
-    @Column(name = "idDatoNombreEstudio")
-    private String idDatoNombreEstudio;
+    @Column(name = "idTipoInstitucion ")
+    private String idTipoInstitucion ;
+
+    @Column(name = "idCarreraEducativa  ")
+    private String idCarreraEducativa  ;
 
     @Column(name = "nombreEstudioEspecifico")
     private String nombreEstudioEspecifico;
-
-    @Column(name = "idDatoCentroEstudio")
-    private String idDatoCentroEstudio;
 
     @Column(name = "idDatoSituacionEstudio")
     private String idDatoSituacionEstudio;
@@ -65,6 +65,9 @@ public class EducacionFormal {
     @Column(name = "fechaExpedicion")
     private LocalDate fechaExpedicion;
 
+    @Column(name = "numeroFolio")
+    private String numeroFolio;
+
     public String getIdEstudioFormal() {
         return idEstudioFormal;
     }
@@ -97,12 +100,20 @@ public class EducacionFormal {
         this.idDatoModalidadAcademica = idDatoModalidadAcademica;
     }
 
-    public String getIdDatoNombreEstudio() {
-        return idDatoNombreEstudio;
+    public String getIdTipoInstitucion() {
+        return idTipoInstitucion;
     }
 
-    public void setIdDatoNombreEstudio(String idDatoNombreEstudio) {
-        this.idDatoNombreEstudio = idDatoNombreEstudio;
+    public void setIdTipoInstitucion(String idTipoInstitucion) {
+        this.idTipoInstitucion = idTipoInstitucion;
+    }
+
+    public String getIdCarreraEducativa() {
+        return idCarreraEducativa;
+    }
+
+    public void setIdCarreraEducativa(String idCarreraEducativa) {
+        this.idCarreraEducativa = idCarreraEducativa;
     }
 
     public String getNombreEstudioEspecifico() {
@@ -111,14 +122,6 @@ public class EducacionFormal {
 
     public void setNombreEstudioEspecifico(String nombreEstudioEspecifico) {
         this.nombreEstudioEspecifico = nombreEstudioEspecifico;
-    }
-
-    public String getIdDatoCentroEstudio() {
-        return idDatoCentroEstudio;
-    }
-
-    public void setIdDatoCentroEstudio(String idDatoCentroEstudio) {
-        this.idDatoCentroEstudio = idDatoCentroEstudio;
     }
 
     public String getIdDatoSituacionEstudio() {
@@ -207,5 +210,13 @@ public class EducacionFormal {
 
     public void setFechaExpedicion(LocalDate fechaExpedicion) {
         this.fechaExpedicion = fechaExpedicion;
+    }
+
+    public String getNumeroFolio() {
+        return numeroFolio;
+    }
+
+    public void setNumeroFolio(String numeroFolio) {
+        this.numeroFolio = numeroFolio;
     }
 }

@@ -15,4 +15,5 @@ public interface IdiomaRepository extends CrudRepository<Idioma,String> {
     String generatePrimaryKeyIdioma(String tabla,String campo,String empresa);
 
     List<Idioma> findByIdPostulante(String id);
+
 }

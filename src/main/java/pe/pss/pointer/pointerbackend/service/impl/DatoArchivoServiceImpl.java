@@ -41,8 +41,8 @@ public class DatoArchivoServiceImpl implements DatoArchivoService {
     }
 
     @Override
-    public List<DatoArchivo> findByIdCodigoRelacional(String id) {
-        return datoArchivoRepository.findByIdCodigoRelacional(id);
+    public List<DatoArchivo> findByIdCodigoRelacional(String id,String proceso) {
+        return datoArchivoRepository.findByIdCodigoRelacionalAndIdProceso(id,proceso);
     }
 
     @Override

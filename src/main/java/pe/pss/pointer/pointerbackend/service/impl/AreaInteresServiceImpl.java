@@ -3,8 +3,10 @@ package pe.pss.pointer.pointerbackend.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.pss.pointer.pointerbackend.model.AreaInteres;
+import pe.pss.pointer.pointerbackend.model.dto.AreaInteresDTO;
 import pe.pss.pointer.pointerbackend.repository.AreaInteresRepository;
 import pe.pss.pointer.pointerbackend.repository.DatosPersonalRepository;
+import pe.pss.pointer.pointerbackend.repository.jdbc.AreaInteresJdbcRepository;
 import pe.pss.pointer.pointerbackend.service.AreaInteresService;
 import pe.pss.pointer.pointerbackend.util.Constantes;
 
@@ -17,6 +19,9 @@ public class AreaInteresServiceImpl implements AreaInteresService {
 
     @Autowired
     DatosPersonalRepository datosPersonalRepository;
+
+    @Autowired
+    AreaInteresJdbcRepository areaInteresJdbcRepository;
 
     @Override
     public AreaInteres save(AreaInteres a) {
@@ -43,5 +48,10 @@ public class AreaInteresServiceImpl implements AreaInteresService {
     @Override
     public List<AreaInteres> findAll() {
         return (List<AreaInteres>) areaInteresRepository.findAll();
+    }
+
+    @Override
+    public List<AreaInteresDTO> getAreasDetailsByPostulante(String id) {
+        return areaInteresJdbcRepository.getAreasByPostulante(id);
     }
 }

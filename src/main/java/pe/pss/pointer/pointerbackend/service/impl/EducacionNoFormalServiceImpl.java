@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.pss.pointer.pointerbackend.model.EducacionFormal;
 import pe.pss.pointer.pointerbackend.model.EducacionNoFormal;
+import pe.pss.pointer.pointerbackend.model.dto.EstudioNoFormalDTO;
 import pe.pss.pointer.pointerbackend.repository.EducacionNoFormalRepository;
+import pe.pss.pointer.pointerbackend.repository.jdbc.EstudioNoFormalJdbcRepository;
 import pe.pss.pointer.pointerbackend.service.EducacionNoFormalService;
 import pe.pss.pointer.pointerbackend.util.Constantes;
 
@@ -15,6 +17,9 @@ public class EducacionNoFormalServiceImpl implements EducacionNoFormalService {
 
     @Autowired
     EducacionNoFormalRepository educacionNoFormalRepository;
+
+    @Autowired
+    EstudioNoFormalJdbcRepository estudioNoFormalJdbcRepository;
 
     @Override
     public EducacionNoFormal findById(String id) {
@@ -44,5 +49,10 @@ public class EducacionNoFormalServiceImpl implements EducacionNoFormalService {
     @Override
     public void deleteById(String id) {
         educacionNoFormalRepository.deleteById(id);
+    }
+
+    @Override
+    public List<EstudioNoFormalDTO> getNoFormalesDetailsByPostulante(String id) {
+        return estudioNoFormalJdbcRepository.getNoFormalesByPostulante(id);
     }
 }

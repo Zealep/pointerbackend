@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.pss.pointer.pointerbackend.model.EducacionFormal;
 import pe.pss.pointer.pointerbackend.model.Idioma;
+import pe.pss.pointer.pointerbackend.model.dto.IdiomaDTO;
 import pe.pss.pointer.pointerbackend.service.EducacionFormalService;
 import pe.pss.pointer.pointerbackend.service.IdiomaService;
 import pe.pss.pointer.pointerbackend.util.ResponseApi;
@@ -36,6 +37,16 @@ public class IdiomaController {
     public ResponseEntity<List<Idioma>> listPorPostulante(@PathVariable String id){
         try{
             return new ResponseEntity<List<Idioma>>((List<Idioma>) idiomaService.findByPostulante(id), HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping(value = "/getDetailsByPostulante/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<IdiomaDTO>> listIdiomasDetallesPorPostulante(@PathVariable String id){
+        try{
+            return new ResponseEntity<List<IdiomaDTO>>((List<IdiomaDTO>) idiomaService.getIdiomasDetailsByPostulante(id), HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

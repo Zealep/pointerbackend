@@ -23,14 +23,14 @@ public class EducacionNoFormal {
     @Column(name = "idDatoModalidadAcademica")
     private String idDatoModalidadAcademica;
 
-    @Column(name = "idDatoNombreEstudio")
-    private String idDatoNombreEstudio;
+    @Column(name = "idCarreraEducativa ")
+    private String idCarreraEducativa ;
 
     @Column(name = "nombreEstudioEspecifico")
     private String nombreEstudioEspecifico;
 
-    @Column(name = "idDatoCentroEstudio")
-    private String idDatoCentroEstudio;
+    @Column(name = "idTipoInstitucion ")
+    private String idTipoInstitucion ;
 
     @Column(name = "nombreCentroEstudio")
     private String nombreCentroEstudio;
@@ -69,14 +69,6 @@ public class EducacionNoFormal {
         return idEstudioNoFormal;
     }
 
-    public String getIdDatoCentroEstudio() {
-        return idDatoCentroEstudio;
-    }
-
-    public void setIdDatoCentroEstudio(String idDatoCentroEstudio) {
-        this.idDatoCentroEstudio = idDatoCentroEstudio;
-    }
-
     public void setIdEstudioNoFormal(String idEstudioNoFormal) {
         this.idEstudioNoFormal = idEstudioNoFormal;
     }
@@ -105,12 +97,12 @@ public class EducacionNoFormal {
         this.idDatoModalidadAcademica = idDatoModalidadAcademica;
     }
 
-    public String getIdDatoNombreEstudio() {
-        return idDatoNombreEstudio;
+    public String getIdCarreraEducativa() {
+        return idCarreraEducativa;
     }
 
-    public void setIdDatoNombreEstudio(String idDatoNombreEstudio) {
-        this.idDatoNombreEstudio = idDatoNombreEstudio;
+    public void setIdCarreraEducativa(String idCarreraEducativa) {
+        this.idCarreraEducativa = idCarreraEducativa;
     }
 
     public String getNombreEstudioEspecifico() {
@@ -119,6 +111,14 @@ public class EducacionNoFormal {
 
     public void setNombreEstudioEspecifico(String nombreEstudioEspecifico) {
         this.nombreEstudioEspecifico = nombreEstudioEspecifico;
+    }
+
+    public String getIdTipoInstitucion() {
+        return idTipoInstitucion;
+    }
+
+    public void setIdTipoInstitucion(String idTipoInstitucion) {
+        this.idTipoInstitucion = idTipoInstitucion;
     }
 
     public String getNombreCentroEstudio() {

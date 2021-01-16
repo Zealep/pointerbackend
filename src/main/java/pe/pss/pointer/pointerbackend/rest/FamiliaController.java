@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.pss.pointer.pointerbackend.model.Familia;
 import pe.pss.pointer.pointerbackend.model.Idioma;
+import pe.pss.pointer.pointerbackend.model.dto.FamiliaDTO;
+import pe.pss.pointer.pointerbackend.model.dto.IdiomaDTO;
 import pe.pss.pointer.pointerbackend.service.FamiliaService;
 import pe.pss.pointer.pointerbackend.service.IdiomaService;
 import pe.pss.pointer.pointerbackend.util.ResponseApi;
@@ -46,6 +48,16 @@ public class FamiliaController {
     public ResponseEntity<List<Familia>> list(){
         try{
             return new ResponseEntity<List<Familia>>((List<Familia>) familiaService.findAll(), HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping(value = "/getDetailsByPostulante/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<FamiliaDTO>> listDetallesPorPostulante(@PathVariable String id){
+        try{
+            return new ResponseEntity<List<FamiliaDTO>>((List<FamiliaDTO>) familiaService.getFamiliasDetailsByPostulante(id), HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

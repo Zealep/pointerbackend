@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.pss.pointer.pointerbackend.model.Familia;
 import pe.pss.pointer.pointerbackend.model.Idioma;
+import pe.pss.pointer.pointerbackend.model.dto.FamiliaDTO;
 import pe.pss.pointer.pointerbackend.repository.FamiliaRepository;
 import pe.pss.pointer.pointerbackend.repository.IdiomaRepository;
+import pe.pss.pointer.pointerbackend.repository.jdbc.FamiliaJdbcRepository;
 import pe.pss.pointer.pointerbackend.service.FamiliaService;
 import pe.pss.pointer.pointerbackend.service.IdiomaService;
 import pe.pss.pointer.pointerbackend.util.Constantes;
@@ -17,6 +19,9 @@ public class FamiliaServiceImpl implements FamiliaService {
 
     @Autowired
     FamiliaRepository familiaRepository;
+
+    @Autowired
+    FamiliaJdbcRepository familiaJdbcRepository;
 
     @Override
     public Familia findById(String id) {
@@ -46,5 +51,10 @@ public class FamiliaServiceImpl implements FamiliaService {
     @Override
     public void deleteById(String id) {
         familiaRepository.deleteById(id);
+    }
+
+    @Override
+    public List<FamiliaDTO> getFamiliasDetailsByPostulante(String id) {
+        return familiaJdbcRepository.getFamiliasByPostulante(id);
     }
 }
