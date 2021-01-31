@@ -13,6 +13,6 @@ public interface DatoArchivoService {
     List<DatoArchivo> findAll();
     DatoArchivo save(DatoArchivo d, MultipartFile file);
     void deleteById(String id);
-
+    void deleteFile(String path);
     byte[] getFile(String identificador);
 }

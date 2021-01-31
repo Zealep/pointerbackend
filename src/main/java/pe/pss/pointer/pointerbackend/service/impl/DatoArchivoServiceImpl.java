@@ -90,6 +90,18 @@ public class DatoArchivoServiceImpl implements DatoArchivoService {
     }
 
     @Override
+    public void deleteFile(String path) {
+        String url = URL_PATH_BASE_ATTACHMENT+path;
+        Path p = Paths.get(url);
+        try{
+            Files.delete(p);
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    @Override
     public byte[] getFile(String url) {
         try {
             String path = URL_PATH_BASE_ATTACHMENT + url;

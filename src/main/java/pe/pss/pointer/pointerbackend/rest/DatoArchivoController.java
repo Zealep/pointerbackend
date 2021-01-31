@@ -53,4 +53,16 @@ public class DatoArchivoController {
         }
     }
 
+    @GetMapping(value = "/deleteFile")
+    public ResponseEntity<ResponseApi> deleteFile(@RequestParam(value = "url")String url,@RequestParam(value = "id")String id){
+        try {
+            datoArchivoService.deleteById(id);
+            datoArchivoService.deleteFile(url);
+            return new ResponseEntity<ResponseApi>(new ResponseApi("OK","",""),HttpStatus.NO_CONTENT);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
