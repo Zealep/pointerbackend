@@ -25,8 +25,11 @@ import java.util.List;
 @Service("datoArchivoService")
 public class DatoArchivoServiceImpl implements DatoArchivoService {
 
-    @Value("${url-path-base-attachment}")
-    private String URL_PATH_BASE_ATTACHMENT;
+    @Value("${url-path-base-seleccion}")
+    private String URL_PATH_BASE_SELECCION;
+
+    @Value("${url-path-base-erp-requisicion}")
+    private String URL_PATH_BASE_ERP_REQUISICION;
 
     @Autowired
     DatoArchivoRepository datoArchivoRepository;
@@ -53,16 +56,16 @@ public class DatoArchivoServiceImpl implements DatoArchivoService {
     @Override
     public DatoArchivo save(DatoArchivo d, MultipartFile file) {
 
-        if(d.getIdDatoArchivoPersona()==null) {
+        if(d.getIdDatoArchivo()==null) {
             String pk = datoArchivoRepository.generatePrimaryKeyDatoArchivo(Constantes.TABLE_DATO_ARCHIVO, Constantes.ID_TABLE_DATO_ARCHIVO, Constantes.CODIGO_EMPRESA);
-            d.setIdDatoArchivoPersona(pk);
+            d.setIdDatoArchivo(pk);
         }
         d.setIdEmpresa(Constantes.CODIGO_EMPRESA);
 
 
         try {
-            String url = "/"+d.getNumeroDocumento() +"/"+ d.getIdProceso() + "/"+d.getIdCodigoRelacional();
-            Path path = Paths.get(URL_PATH_BASE_ATTACHMENT+url);
+            String url =  "/"+ d.getIdProceso() + "/"+d.getIdCodigoRelacional() + "/"+d.getNumeroDocumento();
+            Path path = Paths.get(URL_PATH_BASE_SELECCION+url);
             boolean dirExist = Files.exists(path);
             if (!dirExist) {
                 Files.createDirectories(path);
@@ -91,7 +94,7 @@ public class DatoArchivoServiceImpl implements DatoArchivoService {
 
     @Override
     public void deleteFile(String path) {
-        String url = URL_PATH_BASE_ATTACHMENT+path;
+        String url = URL_PATH_BASE_SELECCION+path;
         Path p = Paths.get(url);
         try{
             Files.delete(p);
@@ -103,13 +106,27 @@ public class DatoArchivoServiceImpl implements DatoArchivoService {
 
     @Override
     public byte[] getFile(String url) {
+
         try {
-            String path = URL_PATH_BASE_ATTACHMENT + url;
+            String path = URL_PATH_BASE_SELECCION + url;
             return FileUtils.readFileToByteArray(new File(FilenameUtils.separatorsToSystem(path)));
         }catch (IOException i){
             return null;
         }
 
+}
+
+    @Override
+    public byte[] getFileModulos(String url, String modulo) {
+        String path = URL_PATH_BASE_SELECCION;
+        if(modulo.equals(Constantes.PROCESO_REQUISICION_PERSONAL)){
+            path = URL_PATH_BASE_ERP_REQUISICION;
+        }
+        try {
+            return FileUtils.readFileToByteArray(new File(FilenameUtils.separatorsToSystem(path+url)));
+        }catch (IOException i){
+            return null;
+        }
     }
 
     private String getNameProcess(String code){

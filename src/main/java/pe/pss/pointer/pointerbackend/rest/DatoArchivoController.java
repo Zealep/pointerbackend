@@ -26,7 +26,7 @@ public class DatoArchivoController {
             ObjectMapper obj = new ObjectMapper();
             DatoArchivo img = obj.readValue(archivo,DatoArchivo.class);
             DatoArchivo i = datoArchivoService.save(img,file);
-            return new ResponseEntity<ResponseApi>(new ResponseApi("OK", i.getIdDatoArchivoPersona(),""), HttpStatus.CREATED);
+            return new ResponseEntity<ResponseApi>(new ResponseApi("OK", i.getIdDatoArchivo(),""), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -52,6 +52,17 @@ public class DatoArchivoController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping(value = "/getFile/proceso",produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    public ResponseEntity<byte[]> getFile(@RequestParam(value = "url")String url,@RequestParam(value = "proceso")String proceso){
+        try {
+            return new ResponseEntity<byte[]>(datoArchivoService.getFileModulos(url,proceso),HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
     @GetMapping(value = "/deleteFile")
     public ResponseEntity<ResponseApi> deleteFile(@RequestParam(value = "url")String url,@RequestParam(value = "id")String id){

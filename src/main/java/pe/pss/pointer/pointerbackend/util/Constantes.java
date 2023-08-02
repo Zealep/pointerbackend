@@ -25,14 +25,17 @@ public interface Constantes {
 	public static final String TABLE_ESTUDIO_NO_FORMAL= "rh_rl_tz_estudio_no_formal";
 	public static final String ID_TABLE_ESTUDIO_NO_FORMAL= "idEstudioNoFormal";
 
-	public static final String TABLE_DATO_ARCHIVO= "mg_tz_dato_archivo_persona";
-	public static final String ID_TABLE_DATO_ARCHIVO= "idDatoArchivoPersona";
+	public static final String TABLE_DATO_ARCHIVO= "mg_tz_dato_archivo";
+	public static final String ID_TABLE_DATO_ARCHIVO= "idDatoArchivo";
 
 	public static final String TABLE_DATO_IDIOMA= "rh_rl_tz_idioma";
 	public static final String ID_TABLE_DATO_IDIOMA= "idIdioma";
 
 	public static final String TABLE_DATO_FAMILIA= "rh_rl_tz_familia";
 	public static final String ID_TABLE_DATO_FAMILIA= "idFamilia";
+
+	public static final String TABLE_REQUISICION_PERSONAL= "rh_rl_tz_requisicion_personal";
+	public static final String ID_TABLE_REQUISICION_PERSONAL= "idRequisicionPersonal";
 
 	public static final String PROCESO_DATOS_BASICOS = "00024";
 	public static final String PROCESO_ESTUDIOS_FORMALES = "00025";
@@ -41,6 +44,18 @@ public interface Constantes {
 	public static final String PROCESO_DATOS_FAMILIARES = "00028";
 	public static final String PROCESO_IDIOMAS = "00029";
 
+	public static final String PROCESO_GALERIA = "00030";
+	public static final String PROCESO_NOTICIA = "00031";
+	public static final String PROCESO_REQUISICION_PERSONAL= "00032";
+
+	public static final String TABLE_DATO_ARCHIVO_INTRANET= "rh_in_tz_datos_archivo";
+	public static final String ID_TABLE_DATO_ARCHIVO_INTRANET= "idDatoArchivo";
+
+
+	//ESTADOS-REQUISICION
+	public static final String REQUISICION_ABIERTA = "A";
+	public static final String REQUISICION_CERRADA  = "C";
+	public static final String REQUISICION_DESIERTA = "D";
 
 
 	public static final int RESPONSE_OK = 200;

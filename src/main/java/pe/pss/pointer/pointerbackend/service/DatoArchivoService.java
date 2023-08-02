@@ -15,4 +15,6 @@ public interface DatoArchivoService {
     void deleteById(String id);
     void deleteFile(String path);
     byte[] getFile(String identificador);
+
+    byte[] getFileModulos(String identificador,String modulo);
 }

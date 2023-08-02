@@ -21,6 +21,15 @@ public class ApiExceptionHandler {
         //Empty. Nothing to do
     }
 
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler({
+            BusinessException.class
+    })
+    @ResponseBody
+    public ErrorMessage businessError(HttpServletRequest request, Exception exception) {
+        return new ErrorMessage(exception, request.getRequestURI());
+    }
+
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler({
             NotFoundException.class

@@ -6,12 +6,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mg_tz_dato_archivo_persona")
+@Table(name = "mg_tz_dato_archivo")
 public class DatoArchivo {
 
     @Id
-    @Column(name = "idDatoArchivoPersona")
-    private String idDatoArchivoPersona;
+    @Column(name = "idDatoArchivo")
+    private String idDatoArchivo;
 
     @Column(name = "idEmpresa")
     private String idEmpresa;
@@ -43,12 +43,12 @@ public class DatoArchivo {
     @Column(name = "pathArchivo")
     private String pathArchivo;
 
-    public String getIdDatoArchivoPersona() {
-        return idDatoArchivoPersona;
+    public String getIdDatoArchivo() {
+        return idDatoArchivo;
     }
 
-    public void setIdDatoArchivoPersona(String idDatoArchivoPersona) {
-        this.idDatoArchivoPersona = idDatoArchivoPersona;
+    public void setIdDatoArchivo(String idDatoArchivo) {
+        this.idDatoArchivo = idDatoArchivo;
     }
 
     public String getIdEmpresa() {

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name="rh_rl_tz_usuario_web")
-public class Usuario implements UserDetails{
+public class Usuario{
 
 	/**
 	 * 
@@ -130,49 +130,5 @@ public class Usuario implements UserDetails{
 	public void setNombres(String nombres) {
 		this.nombres = nombres;
 	}
-
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		List<GrantedAuthority> authorities = new ArrayList<>();
-		authorities.add(new SimpleGrantedAuthority("ADMIN"));
-		return authorities;
-	}
-
-	@Override
-	public String getPassword() {
-		return null;
-	}
-
-	@Override
-	public String getUsername() {
-		return null;
-	}
-
-
-	@Override
-	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	
 	
 }
